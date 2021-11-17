@@ -1,0 +1,33 @@
+<h1>Hello world</h1>
+<p>Coming from articles#index</p>
+
+<table>
+  <thead>
+
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Content</th>
+      <th>Actions</th>
+    </tr>
+
+  </thead>
+  <tbody>
+
+    <% @articles.each do |articles| %>
+    <tr>
+      <td><%= articles.title %></td>
+      <td><%= articles.author %></td>
+      <td><%= articles.content.truncate(100) %></td>
+      <td><%= link_to "Edit", edit_article_path(articles.id) %>
+      <br>
+      <%= link_to article_path(articles.id), method: :delete, data: {confirm: "Are you sure about that?"} do %> Delete <%end%>
+      </td>
+    </tr>
+    <%end%>
+    <br>
+
+    <%= link_to "New article", new_article_path %>
+
+  </tbody>
+</table>
