@@ -14,9 +14,11 @@
         %td= articles.author
         %td= articles.content.truncate(100)
         %td
+          = link_to article_path(articles.id) do
+            Show
           = link_to "Edit", edit_article_path(articles.id)
           %br/
           = link_to article_path(articles.id), method: :delete, data: {confirm: "Are you sure about that?"} do
             Delete
-    %br/
-    = link_to "New article", new_article_path
+  %br/
+  = link_to "New article", new_article_path

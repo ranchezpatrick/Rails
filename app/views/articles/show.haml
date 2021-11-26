@@ -1,0 +1,19 @@
+%h1= @article.title
+
+%p= @article.content
+
+%hr
+
+%table
+ %thead
+  %tr
+   %th Comment
+   %th Actions
+ %tbody
+ - @comments.each do |comment|
+  %tr
+  %td= comment.content
+  %td
+
+= render 'comments/form'
+            
